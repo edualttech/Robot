@@ -597,7 +597,8 @@ const SIMPLE={
 function simpleOf(info){
   if(!info)return null;
   const s=SIMPLE[info.title];
-  return s?s:{title:info.title,lines:['Click me to learn','what I do!']};
+  if(s)return {title:s[0],lines:s.slice(1)};
+  return {title:info.title,lines:['Click me to learn','what I do!']};
 }
 tag(spine,'TORSO CHASSIS',['Carbon-fiber & alloy frame','Transparent polymer panels']);
 tag(computeG,'AI COMPUTING UNIT',['Triple-redundant NPU array','275 TOPS · liquid-assisted']);
